@@ -1,9 +1,8 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Upload</title>
+    <title>Document</title>
 </head>
 
 <body>
@@ -12,20 +11,20 @@
 	<td width="30%">
 		<form method="post" enctype="multipart/form-data">
 	        {% csrf_token %}
-	        {{uf.as_p}}
+        	{{uf.as_p}}
 	        <input type="submit" value="提交" />
-	        </form>
+		</form>
 	</td>
 	<td width="70%">
-		<div id="image" style="width:200px;height:200px; background:#CCCCCC; float:left;">
-		<img src="{% static "/images/timg.jpg" %}" />
-		</div>
+	<div id="image" style="width:390px;height:280px; background:#CCCCCC; float:left;">
+	<img src="__PUBLIC__/images/tu.png" />
 	</td>
+	</div>
 </tr>
 </table>
 </body>
 <script>
-document.getElementById('id_img').onchange = function() {
+document.getElementById('file').onchange = function() {
     var imgFile = this.files[0];
     var fr = new FileReader();
     fr.onload = function() {

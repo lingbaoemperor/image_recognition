@@ -21,5 +21,5 @@ from recordings import views
 urlpatterns = [
     #path('admin/', admin.site.urls),
     url(r'^$',views.start_page),
-    url(r'mainpage/$',views.to_main_page),
+    url(r'upload/$',views.to_main_page),
 ]

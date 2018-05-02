@@ -33,6 +33,6 @@ def to_main_page(req):
 				#跳转到结果
 				return HttpResponse('ok')
 		uf = UploadForm()
-		return render(req,'upload.html',{'uf':uf})
+		return render(req,'main.html',{'uf':uf})
 	else:
 		return HttpResponseRedirect('/')
