@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect,HttpResponse
 from django import forms
-from image_recognition.settings import BASE_DIR
+from recordings.models import Recordings
+import datetime as dt
 
 # Create your views here.
 
@@ -20,9 +21,15 @@ def to_main_page(req):
 		if req.method == "POST":
 			uf = UploadForm(req.POST,req.FILES)
 			if uf.is_valid():
-				with open(BASE_DIR+'/img/'+uf.cleaned_data['img'].name,'wb') as f:
-					dt = uf.cleaned_data['img'].read()
-					f.write(dt)
+				#保存数据到数据库
+				recording = Recordings()
+				recording.img = uf.cleaned_data['img']
+				recording.date = dt.datetime.now()
+				
+				#classfy
+				#...
+				recording.type = 'kind'
+				recording.save()
 				#跳转到结果
 				return HttpResponse('ok')
 		uf = UploadForm()
