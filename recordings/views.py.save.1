@@ -1,0 +1,16 @@
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
+
+# Create your views here.
+
+def start_page(req):
+	if req.method == "POST":
+		req.session['flag'] = "true"
+	return HttpResponseRedirect('start.html')
+
+def to_main_page(req):
+	flag = req.session.get('flag','')
+	if flag == "true":
+		return HttpResponseRedirect('\main.html')
+	else:
+		return HttpResponseRedirect('\start.html')

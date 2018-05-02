@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+<table width="100%">
+<tr>
+	<td width="100%">
+	<form method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{uf.as_p}}
+	<input type="submit" value="提交" />
+	</form>
+	</td>
+</tr>
+</table>
+</body>
+<script>
+document.getElementById('file').onchange = function() {
+    var imgFile = this.files[0];
+    var fr = new FileReader();
+    fr.onload = function() {
+        document.getElementById('image').getElementsByTagName('img')[0].src = fr.result;
+    };
+    fr.readAsDataURL(imgFile);
+};
+</script>
