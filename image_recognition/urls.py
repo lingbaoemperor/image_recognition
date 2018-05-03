@@ -17,9 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from recordings import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
     url(r'^$',views.start_page),
     url(r'upload/$',views.to_main_page),
 ]
+#链接访问图片
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#urlpatterns += static(settings.STATIC_URL, dcument_root=settings.MEDIA_ROOT)

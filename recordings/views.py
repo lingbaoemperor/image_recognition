@@ -31,7 +31,7 @@ def to_main_page(req):
 				recording.type = 'kind'
 				recording.save()
 				#跳转到结果
-				return HttpResponse('ok')
+				return render(req,'result.html')
 		uf = UploadForm()
 		return render(req,'main.html',{'uf':uf})
 	else:

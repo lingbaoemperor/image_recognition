@@ -7,4 +7,4 @@ class Recordings(models.Model):
 	seq = models.AutoField(primary_key=True)
 	date = models.DateTimeField()
 	type = models.CharField(max_length=20)
-	img = models.FileField(upload_to='./img/',default='unknown')
+	img = models.FileField(upload_to='./recordings_img/',default='unknown')
