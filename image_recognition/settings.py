@@ -122,8 +122,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+#映射到STATIC_ROOT目录
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(os.path.dirname(__file__),'static')
+#合并
+#STATIC_ROOT = os.path.join(BASE_DIR,'static')
+#所有静态资源目录
 STATICFILES_DIRS = [
-	"/home/ubuntu/image_recognition/static",
+	("images","/home/ubuntu/image_recognition/recordings/static"),
 	]
