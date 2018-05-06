@@ -1,4 +1,17 @@
+<!DOCTYPE html>
 <html>
-	<img src="{{ MEDIA_URL }}{{"recordings_img/1.jpg"}}" />
-	<p>{{MEDIA_URL}}</p>
-</html>
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+</head>
+
+<body>
+<table width="100%">
+<tr>
+	<td width="30%"><p>This is a {{result}}</p></td>
+	<td width="70%">
+		<img src="{{ MEDIA_URL }}{{"recordings_img/"}}{{ img }}" />
+	</td>
+</tr>
+</table>
+</body>

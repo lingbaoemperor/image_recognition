@@ -30,8 +30,10 @@ def to_main_page(req):
 				#...
 				recording.type = 'kind'
 				recording.save()
+				img = uf.cleaned_data['img'];
+				print(img)
 				#跳转到结果
-				return render(req,'result.html')
+				return render(req,'result.html',{'img':img,'result':'cat'})
 		uf = UploadForm()
 		return render(req,'main.html',{'uf':uf})
 	else:
